@@ -4,38 +4,38 @@
 @use "mixin" as *;
 
 img {
-  max-width: 100%;
-  vertical-align: bottom;
+    max-width: 100%;
+    vertical-align: bottom;
+    
+    transition: all 1.2s ease;
 }
 
 
-// <div class="cover-slide hover-darken inview">
-// <img class="img-zoom" src="images/image-1.jpg" alt="">
+// <div class="cover-slide hover-darken">
+// 　　<img class="img-zoom" src="images/image-1.jpg">
 // </div>
 
+// 2023年11月9日　10時05分
 
-
-.cover-slide {
+.cover-slide{
     position: relative;
     width: 50%;
     overflow: hidden;
-
     &::before{
-        content: "";
+        content:"";
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 2;
-        background-color: lightblue;
+        background-color: gray;
+        // pointer-events: none;
         @include animation(
             $name:AAA,
             $duration:1.2s,
+        )
+    }
 
-            );
-            
-        }
 }
 @keyframes AAA {
     0%{
@@ -55,48 +55,44 @@ img {
         transform: scaleX(0);
     }
     
-}
+};
+
 .img-zoom{
-    transition: transform 0.50s ease;
-    &:hover{
-        transform: scale(1.05);
-    }
+    display: block;
     @include animation(
         $name:BBB,
-        $duration:1.4s,
-        $timing-function:ease,
-    )
+        $duration:1.2s,
+        $fill-mode:none,
+    );
+    &:hover{
+        transform: scale(1.2);
+    }
 }
 @keyframes BBB {
     0%{
-        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
     }
-    
-    20%{
-        scale: 1.3;
+    50%{
+        transform: scaleX(0);
+        transform-origin: left;
     }
-    30%{
-        opacity: 0;
-    }
-  
     100%{
-        opacity: 1;
+        transform-origin: left;
+        transform: scaleX(1);
     }
-    
-}
+};
 
 .hover-darken{
     &::after{
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
+        top:0;
+        left:0;
         width: 100%;
-        height: 100%;
-        transition: background-color 0.5s ease;
+        height:100%;
         pointer-events: none;
     }
-
     &:hover::after{
         background-color: rgba($color: #000000, $alpha: 0.5);
     }
@@ -124,11 +120,496 @@ img {
 
 
 
+// 2023/11/08　20時54分　4回目開始 21時20分　完了
+
+// .cover-slide{
+//     width: 50%;
+//     position: relative;
+//     overflow: hidden;
+//     &::before{
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         background-color: gray;
+//         @include animation(
+//             $name:AAA,
+//             $duration:1.2s,
+//         );
+//     }
+// }
+// @keyframes AAA {
+//     0%{
+//         transform-origin: left;
+//         transform: scaleX(0);
+//     }
+//     50%{
+//         transform-origin: left;
+//         transform: scaleX(100%);
+//     }
+//     50.1%{
+//         transform-origin: right;
+//         transform: scaleX(100%);
+//     }
+//     100%{
+//         transform-origin: right;
+//         transform: scaleX(0);
+//     }
+    
+// }
+
+// .hover-darken{
+//     position: relative;
+//     &::after{
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         pointer-events: none;
+//     }
+//     &:hover::after{
+//         background-color: rgba($color: #000000, $alpha: 0.5);
+//         transition: background-color 1.2s ease;
+//      }
+        
+// }
+
+// .img-zoom{
+
+//     @include animation(
+//         $name:BBB,
+//         $duration:1.2s,
+//         $fill-mode:none,
+//     );
+//     &:hover{
+//         transform: scale(1.2);
+//     }
+// }
+// @keyframes BBB {
+//     0%{
+//         opacity: 0;
+//         transform-origin: left;
+//         transform: scaleX(0);
+//     }
+//     50%{
+//         opacity: 0;
+//         transform-origin: left;
+//         transform: scaleX(0);
+//     }
+//     100%{
+//         opacity: 1;
+//         transform-origin: left;
+//         transform: scaleX(1);
+//     }
+    
+// }
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1108 1922開始
+
+// .cover-slide{
+//     position: relative;
+//     width: 50%;
+//     overflow: hidden;
+//     &::before{
+//         content:"";
+//         position: absolute;
+//         top:0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         background-color: lightgray;
+//         @include animation(
+//             $name:AAA,
+//             $duration:1.2s,
+//         )
+//     }
+// }
+// @keyframes AAA {
+//     0%{
+//         transform-origin: left;
+//         transform: scaleX(0);
+//     }
+//     50%{
+//         transform-origin: left;
+//         transform: scaleX(1);
+//     }
+//     50.1%{
+//         transform-origin: right;
+//         transform: scaleX(1);
+//     }
+//     100%{
+//         transform-origin: right;
+//         transform: scaleX(0);
+//     }
+    
+// }
+
+
+//     .hover-darken{
+//         &::after{
+//             content: "";
+//             position: absolute;
+//             top:0;
+//             left:0;
+//             width: 100%;
+//             height: 100%;
+//             pointer-events: none;
+//             transition: all 1.2s ease;
+//         }
+//         &:hover::after{
+//             background-color: rgba($color: #000000, $alpha: 0.5);
+
+//         }
+//         }
+    
+    
+// // }
+
+
+
+
+
+
+// .img-zoom{
+    
+//     // opacity: 0;
+//     &:hover{
+//         transform: scale(1.2);
+//     }
+//     @include animation(
+//         $name:BBB,
+//         $duration:1.2s,
+//         $timing-function:ease,
+//         $fill-mode:none,
+        
+//     )
+// }
+// @keyframes BBB {
+//     0%{
+
+//         transform: scaleX(0);
+//     }
+    
+//     40%{
+//         transform: scaleX(0);
+//         transform-origin: left;
+
+//     }
+    
+//     100%{
+//         transform-origin: left;
+//         transform: scaleX(1);
+//     }
+// }
+
+
+// 1108 1536開始
+
+// .cover-slide{
+//     position: relative;
+//     overflow: hidden;
+//     width: 50%;
+//     // opacity: 0;
+//     &::before{
+//         content: "";
+//         position: absolute;
+//         top:0;
+//         left:0;
+//         right: 0;
+//         bottom: 0;
+//         background-color: rgb(190, 190, 190);
+//         @include animation(
+//             $name:AAA,
+//             $duration:1.2s,
+//             )
+//     }
+// }
+// @keyframes AAA {
+//     0%{
+//         transform-origin: left;
+//         transform: scaleX(0);
+        
+//     }
+    
+//     50%{
+//         transform-origin: left;
+//         transform: scaleX(1);
+//     }
+//     50.1%{
+//         transform-origin: right;
+//         transform: scaleX(1);
+//     }
+//     100%{
+//         transform-origin: right;
+//         transform: scaleX(0);
+//     }
+    
+// }
+
+
+// .img-zoom{
+
+//     @include animation(
+//         $name:BBB,
+//         $duration:1.2s,
+//         $fill-mode:none,
+//         ) ;
+//         &:hover{
+//             transform: scale(1.2);
+//         }
+// }
+
+// .hover-darken{
+//         &::after{
+//             content: "";
+//             position: absolute;
+//             top:0;
+//             left:0;
+//             width: 100%;
+//             height: 100%;
+//             pointer-events: none;
+        
+//         }
+//         &:hover::after{
+//                     background-color:rgba(0, 0, 0, 0.418);
+//                 }
+            
+//             }
+
+            
+//             @keyframes BBB {
+//                 0%{
+//                     opacity: 0;
+//                 }
+//                 35%{
+//                     transform:scaleX(0);
+//                     opacity: 0;
+//                 }
+//                 100%{
+//                     transform:scaleX(1);
+//                     transform-origin: left;
+//                     opacity: 1;
+//                 }
+                
+//             }
+            
+            
+            
+// 1108完了
+
+// .cover-slide{
+//     width: 50%;
+//     position: absolute;
+//     overflow:hidden;
+//     &::before{
+//         overflow: hidden;
+//         content: "";
+//         position:absolute;
+//         top:0;
+//         left:0;
+//         right: 0;
+//         bottom:0;
+//         background-color: rgba($color: #000000, $alpha: 0.4);
+//         z-index: 1;
+
+
+//         @include animation(
+//             $name:AAA,
+//             $duration:1.5s,
+//             $timing-function:ease,
+//             )
+//         }
+        
+//       .img-zoom{
+//              @include animation(
+//                  $name:BBB,
+//                  $duration:1.5s,
+//                  $timing-function:ease,
+//                  $fill-mode:none
+//                  )
+//      }
+// }
+// .hover-darken{
+//         overflow: hidden;
+        
+        
+//         & .img-zoom:hover{
+//             transform: scale(1.2);
+//             transition:all 1.3s ease;
+//         }
+            
+            
+//         &:hover::after{
+//                 content:"";
+//                 top:0;
+//                 position: absolute;
+//                 left: 0;
+//                 width: 100%;
+//                 height: 100%;
+//                 pointer-events: none;
+//                 background-color: rgba($color: #000000, $alpha: 0.4);
+//                 }
+        
+//     }
+// @keyframes AAA {
+//     0%{
+//         transform-origin: left;
+//         transform: scaleX(0);
+//     }
+//     50%{
+//         transform-origin: left;
+//         transform: scaleX(100%);
+        
+//     }
+//     50.1%{
+//         transform-origin: right;
+//         transform: scaleX(100%);
+        
+        
+//     }
+//     100%{
+//         transform-origin: right;
+//         transform: scaleX(0);
+
+//     }
+// }
+
+// @keyframes BBB  {
+//     0%{
+//         opacity: 0;
+        
+//     }
+//     35%{
+//         opacity: 0;
+//         transform: scale(0);
+//     }
+//     65%{
+//         opacity: 0;
+//         transform: scale(0.9);
+//     }
+//     75%{
+//         opacity: 0.5;
+//     }
+    
+//     100%{
+//         transform: scale(1);
+//         opacity: 1;
+//     }
+// }
+
+
+
+
+
+// .cover-slide {
+//     position: relative;
+//     width: 50%;
+//     overflow: hidden;
+
+//     &::before{
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         z-index: 2;
+//         background-color: lightblue;
+//         @include animation(
+//             $name:AAA,
+//             $duration:1.2s,
+
+//             );
+            
+//         }
+// }
+// @keyframes AAA {
+//     0%{
+//         transform-origin: left;
+//         transform: scaleX(0);
+//     }
+//     50%{
+//         transform-origin: left;
+//         transform: scaleX(100%);
+//     }
+//     50.1%{
+//         transform-origin: right;
+//         transform: scaleX(100%);
+//     }
+//     100%{
+//         transform-origin: right;
+//         transform: scaleX(0);
+//     }
+    
+// }
+// .img-zoom{
+//     transition: transform 0.50s ease;
+//     &:hover{
+//         transform: scale(1.05);
+//     }
+//     @include animation(
+//         $name:BBB,
+//         $duration:1.4s,
+//         $timing-function:ease,
+//     )
+// }
+// @keyframes BBB {
+//     0%{
+//         opacity: 0;
+//     }
+    
+//     20%{
+//         scale: 1.3;
+//     }
+//     30%{
+//         opacity: 0;
+//     }
+  
+//     100%{
+//         opacity: 1;
+//     }
+    
+// }
+
+// .hover-darken{
+//     &::after{
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         transition: background-color 0.5s ease;
+//         pointer-events: none;
+//     }
+
+//     &:hover::after{
+//         background-color: rgba($color: #000000, $alpha: 0.5);
+//     }
+// }
 
 
 // .hover-darken{
